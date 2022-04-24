@@ -25,9 +25,6 @@ except ImportError as e:
 
 from pytube import Playlist, YouTube
 
-
-
-
 def download_video(): #function to download single video
     URL= input("Enter The YouTube Video Link")
     try:
@@ -79,11 +76,6 @@ def download_play_list(): #function to download PlayList Videos
         for i in range(5):
             time.sleep(2)
             print("System will retry after 2 second")       
-
-
-
-
-
 
 # Main drama will start from here.
 make_choice = int (input('''press: 1 For single Video
