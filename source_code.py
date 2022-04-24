@@ -4,10 +4,12 @@ Created on Sat Apr 2 13:33:03 2022
 
 @author: sandeepsingh
 
-This is a weekend project which was completed in two day's. The main motive behind this project was to learn/implement python dependecy free library pytube.
+This is a weekend project which was completed in two day's. 
+The main motive behind this project was to learn/implement python dependecy free library pytube.
 """
 from cmath import e
-import imp #importing imp to access the import internals
+import imp 
+#importing imp to access the import internals
 import os
 import logging
 from secrets import choice
@@ -18,9 +20,10 @@ import datetime
 import sys
 try:
     import pytube
-    except ImportError as e
+except ImportError as e:
     print ("Getting import error as Imported module doesn't exist", e)
 
+from pytube import Playlist, YouTube
 
 
 
@@ -50,20 +53,20 @@ def download_video(): #function to download single video
             print("System will retry after 2 second")
 
 
-def download_play_list():
+def download_play_list(): #function to download PlayList Videos
     URL= input("Enter The YouTube Video PlayList Link")
     try:
+        count =0
         video_link=YouTube(URL)
-        #find the playlist 
-        play_list=video(video_link)
+        #finding the playlist 
+        play_list=Playlist(URL)
         folder=play_list.title
         parent_folder="C:\learning\Pythin_practice\Download"
         path=os.path.join(parent_folder,folder) # to concatenates path components
-        os.mkdir(path)
-        count =0
-        for i in range play_list.videos_link:
+        os.mkdir(path)         
+        for url in play_list.video_urls:
             count=count+1 #find how many videos are present in a playlist
-            video_link=YouTube(URL)
+            video_link=YouTube(url)
             #video_link=video_link.streams.first()
             video_link=video_link.streams.get_highest_resolution()
             print("Downloading .. ", count," : ",  YouTube(URL).title)
