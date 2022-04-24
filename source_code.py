@@ -9,6 +9,7 @@ The main motive behind this project was to learn/implement python dependecy free
 """
 from cmath import e
 import imp 
+import time
 #importing imp to access the import internals
 import os
 import logging
