@@ -3,11 +3,14 @@
 Created on Sat Apr 2 13:33:03 2022
 
 @author: sandeepsingh
+
+This is a weekend project which was completed in two day's. The main motive behind this project was to learn/implement python dependecy free library pytube.
 """
 from cmath import e
 import imp #importing imp to access the import internals
 import os
 import logging
+from secrets import choice
 from tkinter import E
 #import pytube
 import urllib
@@ -80,6 +83,17 @@ def download_play_list():
 
 
 # Main drama will start from here.
+make_choice = int (input('''press: 1 For single Video
+
+Press: 2 for PlayList '''))
+print("\n")
+if make_choice==1:
+    download_video()
+elif make_choice==2:
+    download_play_list()
+else:
+    exit        
+
 
 
 
